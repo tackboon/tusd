@@ -7,7 +7,9 @@ import (
 	grpc_retry "github.com/grpc-ecosystem/go-grpc-middleware/retry"
 	pb "github.com/tackboon/tusd/pkg/proto/v2"
 	"github.com/tus/tusd/pkg/handler"
+
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/status"
 )
 
@@ -24,7 +26,7 @@ func (g *GrpcHook) Setup() error {
 		grpc_retry.WithMax(uint(g.MaxRetries)),
 	}
 	grpcOpts := []grpc.DialOption{
-		grpc.WithInsecure(),
+		grpc.WithTransportCredentials(insecure.NewCredentials()),
 		grpc.WithUnaryInterceptor(grpc_retry.UnaryClientInterceptor(opts...)),
 	}
 	conn, err := grpc.Dial(g.Endpoint, grpcOpts...)
@@ -68,6 +70,7 @@ func marshal(typ HookType, info handler.HookEvent) *pb.Hook {
 			Method:     info.HTTPRequest.Method,
 			Uri:        info.HTTPRequest.URI,
 			RemoteAddr: info.HTTPRequest.RemoteAddr,
+			BearerAuth: info.HTTPRequest.Header.Get("Authorization"),
 		},
 		Name: string(typ),
 	}

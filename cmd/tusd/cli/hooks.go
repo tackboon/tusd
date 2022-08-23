@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/tus/tusd/cmd/tusd/cli/hooks"
+	"github.com/tackboon/tusd/cmd/tusd/cli/hooks"
 	"github.com/tus/tusd/pkg/handler"
 )
 

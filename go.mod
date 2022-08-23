@@ -1,4 +1,4 @@
-module github.com/tus/tusd
+module github.com/tackboon/tusd
 
 // Specify the Go version needed for the Heroku deployment
 // See https://github.com/heroku/heroku-buildpack-go#go-module-specifics
@@ -16,9 +16,11 @@ require (
 	github.com/prometheus/client_golang v1.12.2
 	github.com/sethgrid/pester v0.0.0-20190127155807-68a33a018ad0
 	github.com/stretchr/testify v1.8.0
+	github.com/tus/tusd v1.9.1
 	github.com/vimeo/go-util v1.4.1
 	google.golang.org/api v0.93.0
 	google.golang.org/grpc v1.48.0
+	google.golang.org/protobuf v1.28.0
 	gopkg.in/Acconut/lockfile.v1 v1.1.0
 	gopkg.in/h2non/gock.v1 v1.1.2
 )

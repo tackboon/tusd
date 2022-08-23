@@ -22,7 +22,7 @@ import (
 	"sync/atomic"
 
 	"cloud.google.com/go/storage"
-	"github.com/tus/tusd/internal/uid"
+	"github.com/tackboon/tusd/internal/uid"
 	"github.com/tus/tusd/pkg/handler"
 )
 

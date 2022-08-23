@@ -17,7 +17,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/tus/tusd/internal/uid"
+	"github.com/tackboon/tusd/internal/uid"
 	"github.com/tus/tusd/pkg/handler"
 )
 
